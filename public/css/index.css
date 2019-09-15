@@ -23,6 +23,10 @@ html, body {
   position: relative;
   height: 100%;
   border-radius: 4px;
+  font-size: 10px;
+  padding-left: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .workflow .workflow-line .dateline {
@@ -44,5 +48,7 @@ html, body {
   height: 100%;
   -webkit-border-start: solid 1px #e2e2e2;
           border-inline-start: solid 1px #e2e2e2;
+  text-align: center;
+  color: #4d4d4d;
 }
 /*# sourceMappingURL=index.css.map */
