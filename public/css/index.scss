@@ -1,45 +1,248 @@
-html,body {
-    margin:0;
+body,
+html {
+    margin: 0;
     padding: 0;
-    font-family: 'Noto Sans KR',
-    sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
+    // transition: all ease-in-out 0.3s;
+    // transform: translateX(0);
+
 }
 
-.workflow{
-    
-    background-color: yellow;
-    .workflow-line{
-        position: relative;
-        width: 100%;
-        height: 24px;
-        background-color: #f5f5f5;
-        box-sizing: border-box;
-        padding: 4px 0 4px 0;
-        border-bottom: 1px solid #e2e2e2;
-        .flow{
-            position: relative;
-            height: 100%;            
-            border-radius: 4px;
-            font-size: 10px;
-            padding-left: 10px;
-            box-sizing: border-box;
-            
+.wrapper {
+    .workflow-write-zone {
+        width: 400px;
+        height: 98.5%;
+        background-color: white;
+        position: fixed;
+        right: 0;
+        top: 0.5%;
+        z-index: 90;
+        border-radius: 5px 0 0 5px;
+        box-shadow: 0 3px 6px #e2e2e2;
+
+        .write-cell {
+            width: 90%;
+            margin: 0 auto;
+            margin-top: 40px;
+
+            .title {
+
+                display: flex;
+                align-items: center;
+
+                span {
+                    font-size: 16px;
+                    color: #4d4d4d;
+                    // margin:0 auto;
+                }
+            }
+
+            .content {
+                margin-top: 4px;
+
+                input {
+                    width: 100%;
+                    border: none;
+                    height: 24px;
+                    padding-left: 5px;
+                    box-sizing: border-box;
+                    border-bottom: 1px solid #e2e2e2;
+
+                    &:focus {
+                        outline: none;
+                    }
+
+                    &::placeholder {
+                        color: #e2e2e2;
+                    }
+                }
+
+                textarea {
+                    width: calc(100% - 8px);
+                    height: 100px;
+                    resize: none;
+                    border: 1px solid #e2e2e2;
+
+                    &:focus {
+                        outline: none;
+                    }
+
+                    &::placeholder {
+                        color: #e2e2e2;
+                    }
+                }
+
+                .chips {
+                    width: 100%;
+                    display: grid;
+                    grid-template-columns: auto auto auto auto auto;
+                    grid-row: 50px;
+
+                    .chip {
+
+                        width: 100%;
+                        height: 50px;
+                        background-color: #d3d3d3;
+                        transition: all ease-in-out 0.1s;
+                        cursor: pointer;
+
+                        &:hover {
+                            transform: scale(1.11);
+
+
+                        }
+                    }
+
+                    .active {
+                        transform: scale(1.11);
+                    }
+                }
+            }
         }
+
+        .submitbutton {
+
+            width: 90%;
+            display: block;
+            height: 50px;
+            border: none;
+            // background-color: #0A4CC1;
+            border-radius: 5px;
+            font-size: 1rem;
+            // color: white;
+            margin: 0 auto;
+            margin-top: 40px;
+            cursor: pointer;
+            border : 1px solid #4d4d4d;
+
+            &:hover {
+                filter: brightness(0.9);
+            }
+        }
+    }
+
+    .workflowNameSpace {
+        width: 192px;
+        top: 54px;
+
+        position: fixed;
+        background-color: #f3f3f3;
+        opacity: 0.95;
+        z-index: 9;
+
+        .workflow-line {
+
+            width: 186px;
+            height: 53px;
+            display: flex;
+            align-items: center;
+
+            // border-radius: 0 3px 3px 0;
+            span {
+                margin: 0 auto;
+            }
+        }
+
+        hr {
+            // height: 1px;
+            margin: 0;
+            padding: 0;
+            border: none;
+            border-bottom: solid 1px #e2e2e2;
+        }
+    }
+
+    .flow-top {
+        position: fixed;
+        top: 0;
+        left: calc(48px * 4);
+        width: calc(48px * 365);
+        height: 54px;
+        background-color: #f5f5f5;
+        z-index: 10;
+        opacity: 0.95;
+        border-bottom: 1px solid #e2e2e2;
+
         .dateline {
             position: absolute;
             width: 100%;
-            height: 24px;
+            height: 54px;
             display: flex;
             align-items: center;
             top: 0;
             left: 0;
-            .cell{
+
+            .cell {
                 width: 48px;
-                height: 100%;                
+                height: 100%;
                 border-inline-start: solid 1px #e2e2e2;
                 text-align: center;
                 color: #4d4d4d;
             }
         }
+
+    }
+
+    .workflow {
+        transform: translateX(calc(48px * 4));
+        margin-top: 54px;
+
+        .workflow-line {
+            position: relative;
+            width: 100%;
+            height: 54px;
+            background-color: #f5f5f5;
+            box-sizing: border-box;
+            padding: 4px 0;
+            border-bottom: 1px solid #e2e2e2;
+
+            .flow {
+                position: relative;
+                top: 20px;
+                height: 24px;
+                border-radius: 4px;
+                font-size: 12px;
+                // padding-left: 10px;
+                box-sizing: border-box;
+                color: white;
+                cursor: pointer;
+
+                transition: all ease-in-out 0.1s;
+
+                .flowTitle {
+                    color: #4d4d4d;
+                    position: absolute;
+                    top: -20px;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+
+                }
+
+                &:hover {
+                    opacity: 0.6;
+                }
+            }
+
+            .dateline {
+                position: absolute;
+                width: 100%;
+                height: 54px;
+                display: flex;
+                align-items: center;
+                top: 0;
+                left: 0;
+
+                .cell {
+                    width: 48px;
+                    height: 100%;
+                    border-inline-start: solid 1px #e2e2e2;
+                    text-align: center;
+                    color: #4d4d4d;
+                }
+            }
+
+        }
+
     }
 }

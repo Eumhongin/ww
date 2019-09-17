@@ -1,38 +1,198 @@
-html, body {
+body,
+html {
   margin: 0;
   padding: 0;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
-.workflow {
-  background-color: yellow;
+.wrapper .workflow-write-zone {
+  width: 400px;
+  height: 98.5%;
+  background-color: white;
+  position: fixed;
+  right: 0;
+  top: 0.5%;
+  z-index: 90;
+  border-radius: 5px 0 0 5px;
+  -webkit-box-shadow: 0 3px 6px #e2e2e2;
+          box-shadow: 0 3px 6px #e2e2e2;
 }
 
-.workflow .workflow-line {
-  position: relative;
+.wrapper .workflow-write-zone .write-cell {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.wrapper .workflow-write-zone .write-cell .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wrapper .workflow-write-zone .write-cell .title span {
+  font-size: 16px;
+  color: #4d4d4d;
+}
+
+.wrapper .workflow-write-zone .write-cell .content {
+  margin-top: 4px;
+}
+
+.wrapper .workflow-write-zone .write-cell .content input {
   width: 100%;
+  border: none;
   height: 24px;
-  background-color: #f5f5f5;
+  padding-left: 5px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 4px 0 4px 0;
   border-bottom: 1px solid #e2e2e2;
 }
 
-.workflow .workflow-line .flow {
-  position: relative;
-  height: 100%;
-  border-radius: 4px;
-  font-size: 10px;
-  padding-left: 10px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+.wrapper .workflow-write-zone .write-cell .content input:focus {
+  outline: none;
 }
 
-.workflow .workflow-line .dateline {
+.wrapper .workflow-write-zone .write-cell .content input::-webkit-input-placeholder {
+  color: #e2e2e2;
+}
+
+.wrapper .workflow-write-zone .write-cell .content input:-ms-input-placeholder {
+  color: #e2e2e2;
+}
+
+.wrapper .workflow-write-zone .write-cell .content input::-ms-input-placeholder {
+  color: #e2e2e2;
+}
+
+.wrapper .workflow-write-zone .write-cell .content input::placeholder {
+  color: #e2e2e2;
+}
+
+.wrapper .workflow-write-zone .write-cell .content textarea {
+  width: calc(100% - 8px);
+  height: 100px;
+  resize: none;
+  border: 1px solid #e2e2e2;
+}
+
+.wrapper .workflow-write-zone .write-cell .content textarea:focus {
+  outline: none;
+}
+
+.wrapper .workflow-write-zone .write-cell .content textarea::-webkit-input-placeholder {
+  color: #e2e2e2;
+}
+
+.wrapper .workflow-write-zone .write-cell .content textarea:-ms-input-placeholder {
+  color: #e2e2e2;
+}
+
+.wrapper .workflow-write-zone .write-cell .content textarea::-ms-input-placeholder {
+  color: #e2e2e2;
+}
+
+.wrapper .workflow-write-zone .write-cell .content textarea::placeholder {
+  color: #e2e2e2;
+}
+
+.wrapper .workflow-write-zone .write-cell .content .chips {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto auto auto;
+      grid-template-columns: auto auto auto auto auto;
+  -ms-grid-row: 50;
+  grid-row: 50px;
+}
+
+.wrapper .workflow-write-zone .write-cell .content .chips .chip {
+  width: 100%;
+  height: 50px;
+  background-color: #d3d3d3;
+  -webkit-transition: all ease-in-out 0.1s;
+  transition: all ease-in-out 0.1s;
+  cursor: pointer;
+}
+
+.wrapper .workflow-write-zone .write-cell .content .chips .chip:hover {
+  -webkit-transform: scale(1.11);
+          transform: scale(1.11);
+}
+
+.wrapper .workflow-write-zone .write-cell .content .chips .active {
+  -webkit-transform: scale(1.11);
+          transform: scale(1.11);
+}
+
+.wrapper .workflow-write-zone .submitbutton {
+  width: 90%;
+  display: block;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin: 0 auto;
+  margin-top: 40px;
+  cursor: pointer;
+  border: 1px solid #4d4d4d;
+}
+
+.wrapper .workflow-write-zone .submitbutton:hover {
+  -webkit-filter: brightness(0.9);
+          filter: brightness(0.9);
+}
+
+.wrapper .workflowNameSpace {
+  width: 192px;
+  top: 54px;
+  position: fixed;
+  background-color: #f3f3f3;
+  opacity: 0.95;
+  z-index: 9;
+}
+
+.wrapper .workflowNameSpace .workflow-line {
+  width: 186px;
+  height: 53px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wrapper .workflowNameSpace .workflow-line span {
+  margin: 0 auto;
+}
+
+.wrapper .workflowNameSpace hr {
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-bottom: solid 1px #e2e2e2;
+}
+
+.wrapper .flow-top {
+  position: fixed;
+  top: 0;
+  left: calc(48px * 4);
+  width: calc(48px * 365);
+  height: 54px;
+  background-color: #f5f5f5;
+  z-index: 10;
+  opacity: 0.95;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.wrapper .flow-top .dateline {
   position: absolute;
   width: 100%;
-  height: 24px;
+  height: 54px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -43,7 +203,74 @@ html, body {
   left: 0;
 }
 
-.workflow .workflow-line .dateline .cell {
+.wrapper .flow-top .dateline .cell {
+  width: 48px;
+  height: 100%;
+  -webkit-border-start: solid 1px #e2e2e2;
+          border-inline-start: solid 1px #e2e2e2;
+  text-align: center;
+  color: #4d4d4d;
+}
+
+.wrapper .workflow {
+  -webkit-transform: translateX(calc(48px * 4));
+          transform: translateX(calc(48px * 4));
+  margin-top: 54px;
+}
+
+.wrapper .workflow .workflow-line {
+  position: relative;
+  width: 100%;
+  height: 54px;
+  background-color: #f5f5f5;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 4px 0;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.wrapper .workflow .workflow-line .flow {
+  position: relative;
+  top: 20px;
+  height: 24px;
+  border-radius: 4px;
+  font-size: 12px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: white;
+  cursor: pointer;
+  -webkit-transition: all ease-in-out 0.1s;
+  transition: all ease-in-out 0.1s;
+}
+
+.wrapper .workflow .workflow-line .flow .flowTitle {
+  color: #4d4d4d;
+  position: absolute;
+  top: -20px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.wrapper .workflow .workflow-line .flow:hover {
+  opacity: 0.6;
+}
+
+.wrapper .workflow .workflow-line .dateline {
+  position: absolute;
+  width: 100%;
+  height: 54px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  top: 0;
+  left: 0;
+}
+
+.wrapper .workflow .workflow-line .dateline .cell {
   width: 48px;
   height: 100%;
   -webkit-border-start: solid 1px #e2e2e2;
