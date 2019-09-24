@@ -13,7 +13,7 @@ firebase.initializeApp({
 
 const db = firebase.firestore();
 const Auth = firebase.auth()
-console.log(Auth)
+// console.log(Auth)
 const app = express();
 
 // const router = express.Router()
@@ -24,20 +24,26 @@ app.post('/createUser',(req,res,next) => {
         password : req.body.password,
         name : req.body.name
     }
-    console.log(loginObject.email)
-    console.log(loginObject.password)
+    // console.log(loginObject.email)
+    // console.log(loginObject.password)
     Auth.createUserWithEmailAndPassword(loginObject.email, loginObject.password).then((user) => {
-     console.log(user)
+    //  console.log(user)
      // db.collection('users').docs().add(loginObject)
      // auth.onStateChanged((user) => {
      //  console.log(user.email)
      // })
     }).then((user)=>{
-     console.log(user)
+    //  console.log(user)
     })
     // next()
 
  
+})
+
+app.get('/message',(req,res,next) => {
+    res.json({
+        msg : "helloworld!!!"
+    })
 })
 
 exports.api = functions.https.onRequest(app);
