@@ -16,34 +16,12 @@ const Auth = firebase.auth()
 // console.log(Auth)
 const app = express();
 
+// console.log(__dirname)
+app.use('/views', express.static(__dirname + '/js/views'))
+app.use('/common', express.static(__dirname + '/js/data'))
+app.use('/img', express.static(__dirname + '/img'))
+
 // const router = express.Router()
 
-app.post('/createUser',(req,res,next) => {
-    let loginObject = {
-        email : req.body.email,
-        password : req.body.password,
-        name : req.body.name
-    }
-    // console.log(loginObject.email)
-    // console.log(loginObject.password)
-    Auth.createUserWithEmailAndPassword(loginObject.email, loginObject.password).then((user) => {
-    //  console.log(user)
-     // db.collection('users').docs().add(loginObject)
-     // auth.onStateChanged((user) => {
-     //  console.log(user.email)
-     // })
-    }).then((user)=>{
-    //  console.log(user)
-    })
-    // next()
-
- 
-})
-
-app.get('/message',(req,res,next) => {
-    res.json({
-        msg : "helloworld!!!"
-    })
-})
 
 exports.api = functions.https.onRequest(app);

@@ -7,14 +7,16 @@
     "public": "public",
     "rewrites": [
       {
-        "source": "/**",
+        "source": "**",
         "function": "api"
       }
     ],
     "ignore": [
       "firebase.json",
       "**/.*",
-      "**/node_modules/**"
+      "**/node_modules/**",
+      "**.scss",
+      "**.css.map"
     ]
   },
   "database": {

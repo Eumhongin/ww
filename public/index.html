@@ -2,13 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  
+
+  <!-- TODO : Google Analytics  -->
+
+
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">
    -->
    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <!-- <meta name="apple-mobile-web-app-capable" content="yes" /> -->
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>HeyFlow!</title>
 
+  <link rel="stylesheet" href="./css/core.css">
   <link rel="stylesheet" href="./css/index.css">
 
   <!-- google font Noto Sans KR 300 400 -->
@@ -16,20 +22,18 @@
 
   <!-- firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase.js"></script>
-
+  
   <!-- JQUERY -->
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
 
   <!-- firebase Configuration -->
-  <script src='./js/config/firebaseConfig.js'></script>
-  <script src='./js/view/componentFactory.js'></script>
+  <script src='./config/firebaseConfig.js'></script>
+  <script src='./common/GlobalComponentCenter.js'></script>
+  <script src='./common/componentFactory.js'></script>
 </head>
 <body>
-  <div class='wrapper'>
-    
-  </div>
+  <div class='wrapper'></div>
   
-  <script src='./js/data/semi-router-dom.js'></script>
-  <script src='./js/view/main.js'></script>
+  <script src='./common/app.js'></script>
 </body>
 </html>

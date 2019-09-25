@@ -1,0 +1,29 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  width: 100%;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+ol, li, ul {
+  list-style: none;
+}
+
+input:focus, button:focus {
+  outline: none;
+}
+
+img {
+  width: 100%;
+}
+
+.wrapper {
+  width: 100%;
+}
+/*# sourceMappingURL=core.css.map */
