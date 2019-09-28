@@ -1,10 +1,26 @@
 {
   "rules": {
+    "user_log" : {
+      ".read" : "false",
+      ".write" : "auth != null"
+    },
     "users": {
       "$uid": {
-        ".read": "$uid === auth.uid",
-        ".write": "$uid === auth.uid"
+        ".read": "$uid === auth.uid"
       }
-    }
+    },
+    "displayCompanyList" : {
+      ".read" : "auth != null"
+      
+    },
+
+    "workflow" : {
+      ".write" : "auth != null",
+      "$uid" : {
+        ".read" :"$uid === auth.uid"
+      }
+    },
+    
+    ".read": "auth != null"
   }
 }

@@ -14,18 +14,25 @@ html {
   box-sizing: border-box;
 }
 
-ol,li,ul {
+a {
+  text-decoration: none;
+}
+
+ol,
+li,
+ul {
   list-style: none;
 }
 
-input:focus,button:focus{
-  outline: none;
-}
+
+// button:focus {
+//   outline: none;
+// }
+
 img {
   width: 100%;
 }
 
-.wrapper{
+.wrapper {
   width: 100%;
 }
-

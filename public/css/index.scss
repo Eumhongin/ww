@@ -78,6 +78,12 @@
                     font-size: 0.786rem;
 
                 }
+
+                &:focus {
+                    outline-style: solid;
+                    outline-width: 1px;
+                    outline-color: #4d4d4d;
+                }
             }
 
             button {
@@ -90,6 +96,7 @@
                 border: solid 1px #4d4d4d;
                 background-color: #ffffff;
                 transition: all ease-in-out 0.1s;
+                font-size: 0.8rem;
 
                 min-width: 100px;
                 min-height: 30px;
@@ -110,6 +117,101 @@
 
 
     //workflow part
+    .companyWrapper {
+
+        font-family: 'Shadows Into Light', cursive;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 125px;
+        // background: yellow;
+        color: #4d4d4d;
+        // transition: all ease-in-out 0.3s;
+        z-index: 0;
+
+
+        .selectedCompany {
+            font-size: 52px;
+            position: absolute;
+            top: 21px;
+            left: 26px;
+            cursor: pointer;
+        }
+
+        .client{
+            cursor: default;
+        }
+
+        .companyMenu {
+            width: 0px;
+            height: 1000px;
+            background: white;
+            position: absolute;
+            transition: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 0.3s;
+            font-size: 52px;
+            padding-top: 104px;
+
+            // transition-delay: 0.3s;
+            .companylist {
+                position: relative;
+                opacity: 0.7;
+                // padding-left: 26px;
+                transition: all ease-in-out 0.1s;
+                left: -200px;
+                cursor: pointer;
+
+                &:hover {
+                    opacity: 1;
+                }
+
+
+
+            }
+
+        }
+
+        .companyMenuBackground {
+            transition: all ease-in-out 0.3s;
+            width: 100%;
+            height: 1000px;
+            background: black;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    .companyactive {
+        z-index: 11;
+        transition: all ease-in-out 0.3s;
+
+
+        .selectedCompany {
+            z-index: 20;
+        }
+
+        .companyMenu {
+            width: 223px;
+
+            .companylist {
+                left: 26px;
+
+                @for $i from 1 to 3 {
+                    &:nth-child(#{$i}) {
+
+                        transition-delay: $i * 0.1s;
+                    }
+                }
+            }
+        }
+
+        .companyMenuBackground {
+            opacity: 0.6;
+        }
+    }
+
     .workflow-write-zone {
         width: 400px;
         height: 98.5%;
@@ -201,6 +303,28 @@
             }
         }
 
+        .companyListWrapper {
+            .item {
+                border: 1px solid #e2e2e2;
+                color: #222;
+                padding: 7px;
+                cursor: pointer;
+                border-radius: 5px;
+                margin-bottom: 10px;
+
+                &:hover {
+                    border-color: #ff4800;
+                    color: #ff4800;
+                }
+            }
+
+            .active {
+                border-color: #ff4800;
+                color: #ff4800;
+            }
+
+        }
+
         .submitbutton {
 
             width: 90%;
@@ -224,12 +348,12 @@
 
     .workflowNameSpace {
         width: 192px;
-        top: 54px;
-
+        top: 179px;
         position: fixed;
         background-color: #f3f3f3;
         opacity: 0.95;
         z-index: 9;
+        // transition : all ease-in-out 0.3s;
 
         .workflow-line {
 
@@ -253,9 +377,10 @@
         }
     }
 
+
     .flow-top {
         position: fixed;
-        top: 0;
+        top: 125px;
         left: calc(48px * 4);
         width: calc(48px * 365);
         height: 54px;
@@ -263,6 +388,7 @@
         z-index: 10;
         opacity: 0.95;
         border-bottom: 1px solid #e2e2e2;
+        // transition: all ease-in-out 0.3s;
 
         .dateline {
             position: absolute;
@@ -280,13 +406,17 @@
                 text-align: center;
                 color: #4d4d4d;
             }
+
+            .today {
+                color: #ff4800;
+            }
         }
 
     }
 
     .workflow {
         transform: translateX(calc(48px * 4));
-        margin-top: 54px;
+        margin-top: 179px;
 
         .workflow-line {
             position: relative;
@@ -345,5 +475,66 @@
 
         }
 
+    }
+
+    .modalWrapper {
+        opacity: 0;
+        width: 0;
+        position: fixed;
+        top: 10px;
+        right: 0;
+        transition: all ease-in-out 0.2s;
+        border-radius: 10px;
+        // border: 1px solid #e2e2e2;
+        box-shadow: 0 3px 6px #e2e2e2;
+        padding: 20px;
+        z-index: 999;
+        background-color: white;
+
+        .modalLabel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            border-radius: 10px 10px 0 0;
+            background-color: #222;
+        }
+
+        .modalContent {
+            transition: all ease-in-out 0.2s;
+            color: #4d4d4d;
+
+            .title {
+                font-size: 24px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            .hr {
+                width: 100%;
+                height: 1px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                background-color: #e2e2e2;
+
+            }
+        }
+
+    }
+
+    .modalactive {
+        width: 400px;
+        right: 10px;
+        opacity: 1;
+
+        .modalContent {}
+
+    }
+
+    .killzidx {
+        z-index: 0;
     }
 }

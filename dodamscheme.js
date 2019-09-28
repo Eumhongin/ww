@@ -1,5 +1,13 @@
 let scheme = {
-    user: {
+    user_log :{
+        0 : {
+            email : "String",
+            mode : "Login or Logout",
+            timestamp : Date.now(),
+        }
+        //1 : {}...
+    },
+    users: {
         uid: {
             email: "String",
             password: "HASH",
@@ -13,7 +21,8 @@ let scheme = {
             timestamp: "Int",
             UTCtime: "Date"
         }
-    }
+    },
+    
 }
 
 let workflow = {

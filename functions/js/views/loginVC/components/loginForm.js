@@ -1,4 +1,4 @@
-
+// console.log(window.location.href = "#workflow")
 function loginForm(target) {
   const wrapper = $('<form>').addClass('loginForm').attr('action', 'javascript:tryLogin()').appendTo(target)
   const idinput = $('<input required>').addClass('loginFormId').attr({
@@ -26,10 +26,21 @@ function tryLogin(){
     let name
     writelog(currentUser.email, currentUser.uid)
     
-    database.ref(`/users/${currentUser.uid}/company/ceo`).once('value').then((snapshot) => {
-      name = snapshot.val()
+    database.ref(`/users/${currentUser.uid}`).once('value').then((snapshot) => {
+      name = snapshot.val().company.ceo
+      currentUser.updateProfile({
+        displayName : name,
+      }).catch((error)=> {
+        console.log(error.code)
+      })
+
+      // console.log(currentUser)
+      
       $('head title').text('HeyFlow! - ' + name + '대표님')
+      // window.location.href = "#workflow"
+      
       alert(`환영합니다 ${name}님!`)
+      // document.location.href = "#workflow"
     }).then(() => {
       travel('loginVC', 'workflowVC')
     })

@@ -83,6 +83,12 @@
   font-size: 0.786rem;
 }
 
+.wrapper .loginContainer .loginForm input:focus {
+  outline-style: solid;
+  outline-width: 1px;
+  outline-color: #4d4d4d;
+}
+
 .wrapper .loginContainer .loginForm button {
   display: block;
   margin: 0 auto;
@@ -94,6 +100,7 @@
   background-color: #ffffff;
   -webkit-transition: all ease-in-out 0.1s;
   transition: all ease-in-out 0.1s;
+  font-size: 0.8rem;
   min-width: 100px;
   min-height: 30px;
   max-width: 160px;
@@ -105,6 +112,97 @@
   background-color: #4d4d4d;
   border: none;
   color: white;
+}
+
+.wrapper .companyWrapper {
+  font-family: 'Shadows Into Light', cursive;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 125px;
+  color: #4d4d4d;
+  z-index: 0;
+}
+
+.wrapper .companyWrapper .selectedCompany {
+  font-size: 52px;
+  position: absolute;
+  top: 21px;
+  left: 26px;
+  cursor: pointer;
+}
+
+.wrapper .companyWrapper .client {
+  cursor: default;
+}
+
+.wrapper .companyWrapper .companyMenu {
+  width: 0px;
+  height: 1000px;
+  background: white;
+  position: absolute;
+  -webkit-transition: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 0.3s;
+  transition: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 0.3s;
+  font-size: 52px;
+  padding-top: 104px;
+}
+
+.wrapper .companyWrapper .companyMenu .companylist {
+  position: relative;
+  opacity: 0.7;
+  -webkit-transition: all ease-in-out 0.1s;
+  transition: all ease-in-out 0.1s;
+  left: -200px;
+  cursor: pointer;
+}
+
+.wrapper .companyWrapper .companyMenu .companylist:hover {
+  opacity: 1;
+}
+
+.wrapper .companyWrapper .companyMenuBackground {
+  -webkit-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+  width: 100%;
+  height: 1000px;
+  background: black;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.wrapper .companyactive {
+  z-index: 11;
+  -webkit-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+}
+
+.wrapper .companyactive .selectedCompany {
+  z-index: 20;
+}
+
+.wrapper .companyactive .companyMenu {
+  width: 223px;
+}
+
+.wrapper .companyactive .companyMenu .companylist {
+  left: 26px;
+}
+
+.wrapper .companyactive .companyMenu .companylist:nth-child(1) {
+  -webkit-transition-delay: 0.1s;
+          transition-delay: 0.1s;
+}
+
+.wrapper .companyactive .companyMenu .companylist:nth-child(2) {
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+}
+
+.wrapper .companyactive .companyMenuBackground {
+  opacity: 0.6;
 }
 
 .wrapper .workflow-write-zone {
@@ -230,6 +328,25 @@
           transform: scale(1.11);
 }
 
+.wrapper .workflow-write-zone .companyListWrapper .item {
+  border: 1px solid #e2e2e2;
+  color: #222;
+  padding: 7px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.wrapper .workflow-write-zone .companyListWrapper .item:hover {
+  border-color: #ff4800;
+  color: #ff4800;
+}
+
+.wrapper .workflow-write-zone .companyListWrapper .active {
+  border-color: #ff4800;
+  color: #ff4800;
+}
+
 .wrapper .workflow-write-zone .submitbutton {
   width: 90%;
   display: block;
@@ -250,7 +367,7 @@
 
 .wrapper .workflowNameSpace {
   width: 192px;
-  top: 54px;
+  top: 179px;
   position: fixed;
   background-color: #f3f3f3;
   opacity: 0.95;
@@ -281,7 +398,7 @@
 
 .wrapper .flow-top {
   position: fixed;
-  top: 0;
+  top: 125px;
   left: calc(48px * 4);
   width: calc(48px * 365);
   height: 54px;
@@ -314,10 +431,14 @@
   color: #4d4d4d;
 }
 
+.wrapper .flow-top .dateline .today {
+  color: #ff4800;
+}
+
 .wrapper .workflow {
   -webkit-transform: translateX(calc(48px * 4));
           transform: translateX(calc(48px * 4));
-  margin-top: 54px;
+  margin-top: 179px;
 }
 
 .wrapper .workflow .workflow-line {
@@ -379,5 +500,63 @@
           border-inline-start: solid 1px #e2e2e2;
   text-align: center;
   color: #4d4d4d;
+}
+
+.wrapper .modalWrapper {
+  opacity: 0;
+  width: 0;
+  position: fixed;
+  top: 10px;
+  right: 0;
+  -webkit-transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 3px 6px #e2e2e2;
+          box-shadow: 0 3px 6px #e2e2e2;
+  padding: 20px;
+  z-index: 999;
+  background-color: white;
+}
+
+.wrapper .modalWrapper .modalLabel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  border-radius: 10px 10px 0 0;
+  background-color: #222;
+}
+
+.wrapper .modalWrapper .modalContent {
+  -webkit-transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
+  color: #4d4d4d;
+}
+
+.wrapper .modalWrapper .modalContent .title {
+  font-size: 24px;
+}
+
+.wrapper .modalWrapper .modalContent .subtitle {
+  font-size: 16px;
+}
+
+.wrapper .modalWrapper .modalContent .hr {
+  width: 100%;
+  height: 1px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #e2e2e2;
+}
+
+.wrapper .modalactive {
+  width: 400px;
+  right: 10px;
+  opacity: 1;
+}
+
+.wrapper .killzidx {
+  z-index: 0;
 }
 /*# sourceMappingURL=index.css.map */

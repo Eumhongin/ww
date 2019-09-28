@@ -23,7 +23,7 @@ function removeScript(currentViewName) {
     if (Views.indexOf(currentView) !== -1) {
         $(`.${currentViewName}-script`).remove()
         // currentView에 해당하는 Components 들 다 지워줘야댐.
-
+        removeComponents(currentView)
         $('body').removeClass(currentViewName)
         $('.wrapper > *').remove()
     } else {
@@ -36,10 +36,11 @@ function addScript(nextViewName) {
     if (Views.indexOf(nextViewName) !== -1) {
         currentView = nextViewName
         $('body').addClass(nextViewName)
+        addComponents(nextViewName)
         $(`<script src="./views/${nextViewName}/index.js">`)
             .addClass(`${nextViewName}-script`)
             .appendTo('body')
-        addComponents(nextViewName)
+        
     } else {
         error(nextViewName)
     }
@@ -63,7 +64,7 @@ function removeComponents(TargetViewName) {
     if (Views.indexOf(TargetViewName) !== -1) {
         for (let idx = 0; idx < Components[TargetViewName].length; idx++) {
             const element = Components[TargetViewName][idx];
-            (`.${element}-script`).remove()
+            $(`.${element}-script`).remove()
         }
         
     } else {
