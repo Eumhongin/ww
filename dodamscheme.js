@@ -5,25 +5,41 @@ let scheme = {
             mode : "Login or Logout",
             timestamp : Date.now(),
         }
-        //1 : {}...
+        
     },
     users: {
-        uid: {
-            email: "String",
-            password: "HASH",
-            name: "String",
-            company: {
+        erp : {
+            uid: {
+                email: "String",
+                password: "HASH",
                 name: "String",
-                address: "String",
-                tel: "Int",
-                items: "[String]"
-            },
-            timestamp: "Int",
-            UTCtime: "Date"
+                company: {
+                    name: "String",
+                    address: "String",
+                    tel: "Int",
+                    items: "[String]"
+                },
+                timestamp: "Int",
+                UTCtime: "Date"
+            }
+        },
+        ios : {
+            
+        },
+        android : {
+
         }
+
+        
     },
+
     
 }
+
+
+
+
+
 
 let workflow = {
     0: {
