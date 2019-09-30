@@ -36,6 +36,7 @@ function modal(e){
       })
     }
   } else { // 다른 플로우 클릭시
+    $('.flow').removeClass('active')
     $(e).addClass('active')
     $('.modalWrapper').addClass('modalactive')
 
