@@ -25,6 +25,7 @@ function flowStart(target) {
       // 원래 기존에 있던거 지우고
       if ($('.workflow').length !== 0) {
         //  console.log('remove!')
+        $('.flow-top').remove()
         $('.workflow').remove()
         $('.workflowNameSpace').remove()
       }
@@ -171,6 +172,7 @@ function changeCompany(e){
       // 원래 기존에 있던거 지우고
       if ($('.workflow').length !== 0) {
         //  console.log('remove!')
+        $('.flow-top').remove()
         $('.workflow').remove()
         $('.workflowNameSpace').remove()
       }

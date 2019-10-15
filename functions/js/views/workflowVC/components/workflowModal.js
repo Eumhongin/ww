@@ -36,13 +36,15 @@ function modal(e){
       })
     }
   } else { // 다른 플로우 클릭시
-    $('.flow').removeClass('active')
+    $('.flow').each((index,el) => {
+      $(el).removeClass('active')
+    })
     $(e).addClass('active')
     $('.modalWrapper').addClass('modalactive')
 
     $('.modalContent .title').text(data.title)
     $('.modalContent .subtitle').text(data.subtitle)
-    $('.modalContent .content').text(data.comment)
+    $('.modalContent .content').html(data.comment.replace(/\n/g,'<br />'))
 
 
     $('.modalLabel').css({
